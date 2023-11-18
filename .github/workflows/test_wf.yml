@@ -18,8 +18,8 @@ jobs:
 
       - name: Install dependencies on each service
         run: |
-          docker exec week2-devops_web1_1 pip install flake8 pytest pytest-flask pytest-cov
-          docker exec week2-devops_web2_1 pip install flake8 pytest pytest-flask pytest-cov
+          docker exec devops-cc-week-2-web1 pip install flake8 pytest pytest-flask pytest-cov
+          docker exec devops-cc-week-2-web2 pip install flake8 pytest pytest-flask pytest-cov
 
       - name: Run tests and Build coverage within container and mapped volume
         run: |
