@@ -23,8 +23,8 @@ jobs:
 
       - name: Run tests and Build coverage within container and mapped volume
         run: |
-          docker exec week2-devops_web1_1 python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=tests -v tests/ | tee quote_gen/pytest-coverage.txt
-          docker exec week2-devops_web2_1 python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=tests -v tests/ | tee quote_disp/pytest-coverage.txt
+          docker exec gen python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=tests -v tests/ | tee quote_gen/pytest-coverage.txt
+          docker exec disp python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=tests -v tests/ | tee quote_disp/pytest-coverage.txt
 
       - name: Pytest coverage comment (quote_gen service)
         uses: MishaKav/pytest-coverage-comment@main
